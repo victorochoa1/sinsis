@@ -1,0 +1,34 @@
+.encabezado{
+    background-color:rgb(70, 67, 60);
+    color:rgb(255, 255, 255);
+    display: flex;
+    justify-content: space-around;
+    align-items:center;
+    height:5em;
+}
+.encabezado-titulo{
+    font-size:40px;
+    font-weight: bold;
+}
+
+.encabezado-nav ul{
+    list-style-type: none;
+    margin:0px;
+    display: flex;
+}
+
+
+.encabezado-nav ul li{
+    margin:0 10px 0 10px;
+}
+
+.encabezado-nav ul li a{
+    text-decoration: none;
+    font-size:15px;
+    color:rgb(255, 255, 255);
+} 
+
+#logo{
+    width: 200px;
+    height: 65px;
+}
