@@ -1,0 +1,148 @@
+.encabezado{
+    
+    background-color: rgb(90, 88, 88);
+    color:rgb(207,181,59);
+    display: flex;
+    justify-content: space-around;
+    align-items:center;
+    height:5em;
+    z-index: 1;
+    top: 0px;
+    position: relative;
+}
+.encabezado-titulo{
+    font-size:40px;
+    font-weight: bold;
+}
+
+.encabezado-nav ul{
+    list-style-type: none;
+    margin:0px;
+    display: flex;
+}
+
+
+.encabezado-nav ul li{
+    margin:0 10px 0 10px;
+}
+
+.encabezado-nav ul li a{
+    text-decoration: none;
+    font-size:15px;
+    color:rgb(207,181,59);
+} 
+
+#logo{
+    width: 200px;
+    height: 65px;
+}
+#btn_sesion{
+    
+}
+
+@media only screen and (max-width: 750px) and (min-width: 401px) {
+
+   
+    .encabezado{ 
+        position: fixed;
+        top: 1px;
+        width: auto;
+        background-color:rgb(88, 90, 88);
+        color:rgb(207,181,59);
+        display: flex;
+        justify-content: space-around;
+        align-items:center;
+        height:5em;
+    }
+    .encabezado-titulo{
+        font-size:40px;
+        font-weight: bold;
+    }
+    
+    .encabezado-nav ul{
+        list-style-type: none;
+        margin:0px;
+        display: flex;
+    }
+    
+    
+    .encabezado-nav ul li{
+        margin:0 10px 0 10px;
+    }
+    
+    .encabezado-nav ul li a{
+        position: relative;
+        right: 20px;
+        text-decoration: none;
+        font-size:15px;
+        color: rgb(207,181,59);
+    } 
+    
+    #logo{
+        width: 150px;
+        height: 40px;
+    }
+    #btn_sesion{
+        position: relative;
+        right: 15px;
+        width: 60px;
+        height: 30px;
+        font-size: 10px;
+        
+    }
+    
+
+}
+
+
+
+@media only screen and (max-width: 400px) and (min-width: 50px) {
+
+    .encabezado{
+        top: 3px;
+        background-color: rgb(34, 34, 34);
+        color:rgb(207,181,59);
+        display: flex;
+        justify-content: space-around;
+        align-items:center;
+        height:3em;
+        position: fixed;
+    }
+    .encabezado-titulo{
+        font-size:40px;
+        font-weight: bold;
+    }
+    
+    .encabezado-nav ul{
+        list-style-type: none;
+        margin:0px;
+        display: flex;
+    }
+    
+    
+    .encabezado-nav ul li{
+        margin:0 10px 0 10px;
+        font-size:10px;
+    }
+    
+    .encabezado-nav ul li a{
+        text-decoration: none;
+        font-size:8px;
+        color:rgb(207,181,59);
+    } 
+    
+    #logo{
+        left: 30px;
+        width: 100px;
+        height: 25px;
+    }
+    #btn_sesion{
+        width: 40;
+        height: 25px;
+        font-size: 8px;
+        color: rgb(121, 103, 27);
+        background-color: white;
+    }
+    
+
+}

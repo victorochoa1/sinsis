@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css_barra_navegacion.css">
-    <title>Document</title>
+    <link rel="icon" type="image/ico" href="ico.ico" />
+    <title>Sinsis</title>
 </head>
 <body>
 <?php
@@ -13,7 +14,7 @@
 
 
     <header class="encabezado">
-    <a href="gerente.php"><img src="logo.png" id="logo"></a>
+    <a href="gerente.php"><img src="logo2.png" id="logo"></a>
     <nav class="encabezado-nav">
         <ul>
             <li><a href="alta_user.php">Alta de consultor</a></li>

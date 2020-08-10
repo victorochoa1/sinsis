@@ -10,6 +10,7 @@ include("valida.php");
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/ico" href="ico.ico" />
     <title>SinSis</title>
 </head>
 
@@ -81,6 +82,25 @@ include("valida.php");
                 </label>
                 
                 <button type="submit" id="finalizar_proyecto">Cerrar Proyecto</button>
+            </form>
+
+            <br><br>
+            <h1>Editar proyecto</h1>
+            <form action="editar_proyecto.php?ac=7" method="POST" id="formularo_editar_proyecto" name="formularo_editar_proyecto" class="formulario">
+                <label for="proyecto_editar">
+                <select name="proyecto_editar" id="proyecto_editar">
+                <option value="" selected="selected" disabled="disabled">--Selecciona--</option>
+                    <?php
+                    $consulta="SELECT * FROM proyectos WHERE cerrado = 0";
+                    $ejecutar=mysqli_query($db,$consulta) or die (mysqli_error($db));
+                    foreach ($ejecutar as $opciones):
+                    ?>
+                    <option value="<?php echo $opciones ['id_proyectos'] ?>"><?php echo $opciones ['nombre_proyecto'] ?> </option>
+                    <?php endforeach ?>
+                </select>
+                </label>
+                
+                <button type="submit" id="editar_proyecto">Cerrar Proyecto</button>
             </form>
 
             

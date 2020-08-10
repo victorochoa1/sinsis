@@ -1,10 +1,13 @@
 .encabezado{
-    background-color:rgb(70, 67, 60);
-    color:rgb(255, 255, 255);
+    background-color:rgb(207,181,59);
+    color:black;
     display: flex;
     justify-content: space-around;
     align-items:center;
     height:5em;
+    z-index: 1;
+    top: 0px;
+    position: relative;
 }
 .encabezado-titulo{
     font-size:40px;
@@ -25,10 +28,118 @@
 .encabezado-nav ul li a{
     text-decoration: none;
     font-size:15px;
-    color:rgb(255, 255, 255);
+    color: black;
 } 
 
 #logo{
     width: 200px;
     height: 65px;
 }
+
+
+@media only screen and (max-width: 400px) and (min-width: 50px) {
+
+    .encabezado{
+        top: 3px;
+        background-color: rgb(207,181,59);
+        color: black;
+        display: flex;
+        justify-content: space-around;
+        align-items:center;
+        height:3em;
+        position: fixed;
+    }
+    .encabezado-titulo{
+        font-size:40px;
+        font-weight: bold;
+    }
+    
+    .encabezado-nav ul{
+        list-style-type: none;
+        margin:0px;
+        display: flex;
+    }
+    
+    
+    .encabezado-nav ul li{
+        margin:0 10px 0 10px;
+        font-size:10px;
+    }
+    
+    .encabezado-nav ul li a{
+         position: relative;
+        right: 15px;
+        text-decoration: none;
+        font-size:6px;
+        color:black;
+    } 
+    
+    #logo{
+        position: relative;
+        left: 20px;
+        width: 70px;
+        height: 18px;
+    }
+    #btn_sesion{
+        position: relative;
+        right: 15px;
+        width: 30px;
+        height: 20px;
+        font-size: 5px;
+        color: rgb(207,181,59);
+        background-color: rgb(12, 12, 12);
+    }
+}
+@media only screen and (max-width: 750px) and (min-width: 401px) {
+
+
+    .encabezado{
+        width: auto;
+        background-color:rgb(207,181,59);
+        color:black;
+        display: flex;
+        justify-content: space-around;
+        align-items:center;
+        height:5em;
+    }
+    .encabezado-titulo{
+        font-size:40px;
+        font-weight: bold;
+    }
+    
+    .encabezado-nav ul{
+        list-style-type: none;
+        margin:0px;
+        display: flex;
+    }
+    
+    
+    .encabezado-nav ul li{
+        margin:0 10px 0 10px;
+    }
+    
+    .encabezado-nav ul li a{
+        position: relative;
+        right: 20px;
+        text-decoration: none;
+        font-size:10px;
+        color: black;
+    } 
+    
+    #logo{
+        width: 150px;
+        height: 40px;
+    }
+    #btn_sesion{
+        position: relative;
+        right: 15px;
+        width: 60px;
+        height: 30px;
+        font-size: 10px;
+        
+    }
+
+
+}
+
+    

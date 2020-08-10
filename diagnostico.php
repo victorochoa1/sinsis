@@ -11,6 +11,7 @@ include("valida.php");
     <link rel="stylesheet" href="style.css">
     <script src="jquery-3.5.1.min.js"></script>
    <script src="prueba.js"></script>
+   <link rel="icon" type="image/ico" href="ico.ico" />
     <title>SinSis</title>
 </head>
 
@@ -34,8 +35,10 @@ include("valida.php");
         <!-- aqui enpieza tu formulario franco -->
         <!-- FRANCO -->    
             <h1>Ver diagnostico</h1> 
-            <form action="diagnostico_vista.php" method="POST" id="formularo_mostrar_diagnostico" name="formularo_mostrar_diagnostico" class="formulario">
-            <!--<form action="operaciones.php?ac=5" method="POST" id="formularo_mostrar_diagnostico" name="formularo_mostrar_diagnostico" class="formulario">-->
+           <!-- <form action="diagnostico_vista.php" method="POST" id="formularo_mostrar_diagnostico" name="formularo_mostrar_diagnostico" class="formulario">--> 
+            <!--<form action="reporte.php" method="POST" id="formularo_mostrar_diagnostico" name="formularo_mostrar_diagnostico" class="formulario">-->
+            
+            <form action="reporte.php" method="POST" id="formularo_mostrar_diagnostico" name="formularo_mostrar_diagnostico" class="formulario">
                 <label for="diagnostico_ver">
                 <select name="diagnostico_ver" id="diagnostico_ver">
                     <option value="" selected="selected" disabled="disabled">--Selecciona--</option>

@@ -13,6 +13,7 @@ include("valida.php");
     <link rel="stylesheet" href="style.css">
     <script src="jquery-3.5.1.min.js"></script>
    <script src="op_proyecto_nuevo.js"></script>
+   <link rel="icon" type="image/ico" href="ico.ico" />
     <title>SinSis</title>
 </head>
 

@@ -17,8 +17,10 @@
     margin:0px;
     display: flex;
 }
+#body_is{
+    background-color:rgb(43, 39, 38);
 
-
+}
 .encabezado-nav ul li{
     margin:0 10px 0 10px;
 }
@@ -38,14 +40,15 @@
 
 }
 #fondo_is{
+    width: 100%;
     background-image: url(oficina.jpg);
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
 }
 #div_is{
-    filter: blur(3px);
-    width: 1300px;
+    
+    width: 100%;
     height: 700px;
     background-image: url(oficina.jpg);
     background-size: contain;
@@ -55,21 +58,22 @@
     
 }
 #cen{ 
+    color: rgb(8, 8, 8);
     position: absolute;
-    filter: blur(0px);
     top: 100px;
-    background-color: rgb(159, 163, 170);
+    background-color: rgb(207,181,59);
     width: 350px;
     height: 390px;
-    left: 35%;
     border-radius: 10px 10px 10px 10px;
+    left: 35%;
+
+    
    
 }
 #div_formu{
     top: 115px;
     position: fixed;
-    filter: blur(3px);
-    width: 100%;
+    width: 1500px;
     height: 800px;
     background-image: url(oficina.jpg);
     background-size: contain;
@@ -79,16 +83,17 @@
 }
 #formu{
     position: absolute;
-    filter: blur(0px);
-    top: 130px;
-    background-color: rgb(100, 111, 131);
+    top: 140px;
+    background-color: rgb(207,181,59);
     width: 700px;
     height: auto;
     left: 25%;
     border-radius: 10px 10px 10px 10px;
 }
 
-
+body{
+    background-color: black;
+}
 
 input{ 
     border-radius: 7px;
@@ -105,34 +110,239 @@ textarea{
 
 
 
+@media only screen and (max-width: 400px) and (min-width: 50px) {
 
+    .encabezado{
+    
+        background-color:blue;
+        color:rgb(255, 255, 255);
+        display: flex;
+        justify-content: space-around;
+        align-items:center;
+        height:3em;
+        width: 360px;
+        left: 0px;
+    }
+    .encabezado-titulo{
+        font-size:40px;
+        font-weight: bold;
+    }
+    
+    .encabezado-nav ul{
+        list-style-type: none;
+        margin:0px;
+        display: flex;
+    }
+    
+    
+    .encabezado-nav ul li{
+        margin:0 10px 0 10px;
+    }
+    
+    .encabezado-nav ul li a{
+        text-decoration: none;
+        font-size:15px;
+        color:rgb(255, 255, 255);
+    } 
+    #logo{
+        width: 150px;
+        height: 30px;
+    }
+    #logo_is{
+        width: 200px;
+        height: 65px;
+    
+    }
+    #fondo_is{
+        background-image: url(oficina.jpg);
+        background-size: contain;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+    #div_is{
+        
+        width: 360px;
+        height: 700px;
+        background-image: url();
+        background-size: contain;
+        background-position: center;
+        background-repeat: no-repeat;
+        justify-content: center;
+        
+    }
+    #cen{ 
+        color: black;
+        position: absolute;
+        filter: blur(0px);
+        top: 100px;
+        background-color: rgb(207,181,59);
+        width: 360px;
+        height: 390px;
+        left:0%;
+        border-radius: 10px 10px 10px 10px;
+       
+    }
+    #div_formu{
+        top: 115px;
+        position: fixed;
+        filter: blur(3px);
+        width: 360px;
+        height:auto;
+        background-image: url(oficina.jpg);
+        background-size: contain;
+        background-position: center;
+        background-repeat: no-repeat;
+        justify-content: center;
+    }
+    #formu{
+        position: absolute;
+        filter: blur(0px);
+        top: 100px;
+        background-color: rgb(207,181,59);
+        width: 360px;
+        height: auto;
+        left: 0%;
+        border-radius: 10px 10px 10px 10px;
+    }
+    
+    
+    
+    input{ 
+        border-radius: 7px;
+        border-color: whitesmoke;
+    }
+    textarea{
+        border-radius: 7px;
+        border-color: whitesmoke;
+    }
+    
 
+    #problema1{
+        width: 170px;
+    }
+    #problema2{
+        width: 170px;
+    }
+    #btn_sesion{
+        font-size: 10px;
+        width: 45px;
+    }
 
-
-
-
-
-
-.menuCSS3 ul {
-
-    display: block;
-    padding: 0;
-    margin: 0;
-    list-style: none;
+    
 }
-.menuCSS3 a {
-    display: block;
-    padding: 1em;
-    background-color: rgba(159, 163, 170, 0.397);
-    text-decoration: none;
-    color: #191C26;
-}
-.menuCSS3 a:hover {
-    background-color:rgba(159, 163, 170, 0.397);
-}
-.menuCSS3 ul li ul {
-    display: none;
-}
-.menuCSS3 ul li a:hover + ul, .menuCSS3 ul li ul:hover {
-    display: block;
+
+
+
+
+
+
+
+
+
+@media only screen and (max-width: 750px) and (min-width: 401px) {
+    .encabezado{
+    
+        background-color:rgb(159, 163, 170);
+        color:rgb(255, 255, 255);
+        display: flex;
+        justify-content: space-around;
+        align-items:center;
+        height:5em;
+    }
+    .encabezado-titulo{
+        font-size:40px;
+        font-weight: bold;
+    }
+    
+    .encabezado-nav ul{
+        list-style-type: none;
+        margin:0px;
+        display: flex;
+    }
+    #body_is{
+        background-color:rgb(43, 39, 38);
+    
+    }
+    .encabezado-nav ul li{
+        margin:0 10px 0 10px;
+    }
+    
+    .encabezado-nav ul li a{
+        text-decoration: none;
+        font-size:15px;
+        color:rgb(255, 255, 255);
+    } 
+    #logo{
+        width: 200px;
+        height: 65px;
+    }
+    #logo_is{
+        width: 300px;
+        height: 65px;
+    
+    }
+    #fondo_is{
+        width: 100%;
+        background-image: url(oficina.jpg);
+        background-size: contain;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+    #div_is{
+        
+        width: 100%;
+        height: 700px;
+        background-image: url(oficina.jpg);
+        background-size: contain;
+        background-position: center;
+        background-repeat: no-repeat;
+        justify-content: center;
+        
+    }
+    #cen{ 
+        color: rgb(8, 8, 8);
+        position: absolute;
+        top: 100px;
+        background-color: rgb(207,181,59);
+        width: 350px;
+        height: 390px;
+        border-radius: 10px 10px 10px 10px;
+        left: 35%;
+    
+        
+       
+    }
+    #div_formu{
+        position: absolute;
+        top: 100px;
+        right: 300px;
+        width:1800px;
+        height: 800px;
+        
+    }
+    #formu{
+        position: absolute;
+        top: 140px;
+        background-color: rgb(207,181,59);
+        width: 100%;
+        height: auto;
+        border-radius: 10px 10px 10px 10px;
+        left: 0px;
+    }
+    
+    body{
+        background-image: url(oficina.jpg);
+    }
+    
+    input{ 
+        border-radius: 7px;
+        border-color: whitesmoke;
+    }
+    textarea{
+        border-radius: 7px;
+        border-color: whitesmoke;
+    }
+    
+    
+    
 }

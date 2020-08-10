@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css_barra_navegacion.css">
-    <title>Document</title>
+    <link rel="stylesheet" href="css_barra_navegacion_consultor.css">
+    <link rel="icon" type="image/ico" href="ico.ico" />
+    <title>Sinsis</title>
 </head>
 <body>
 <?php
@@ -13,7 +14,7 @@
 
 
     <header class="encabezado">
-    <a href="consultor.php"><img src="logo.png" id="logo"></a>
+    <a href="consultor.php"><img src="logo1.png" id="logo"></a>
     <nav class="encabezado-nav">
         <ul>
             <li><a href="entrevista.php">Entrevista nueva</a></li>
