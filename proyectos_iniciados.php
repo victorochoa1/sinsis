@@ -32,7 +32,7 @@ include("valida.php");
         <div id="formu"> <br>        
         <!-- aqui enpieza tu formulario franco -->
         <!-- FRANCO -->     
-            <form action="operaciones.php?ac=4" method="POST" id="formulario_proyecto_status" name="formulario_proyecto_status" class="formulario">               
+             <!--<form action="operaciones.php?ac=4" method="POST" id="formulario_proyecto_status" name="formulario_proyecto_status" class="formulario">               
                 <table>
                     <thead>
                         <tr>
@@ -42,6 +42,7 @@ include("valida.php");
                         </tr>
                     </thead>
                     <?php 
+                   /*
                     $sql="SELECT * FROM proyectos WHERE cerrado = 0";
                     $result=mysqli_query($db,$sql);                            
                             while($mostrar=mysqli_fetch_array($result)){
@@ -61,10 +62,13 @@ include("valida.php");
                     </tr>
                     <?php 
                     }
+                    */
                     ?>
                 </table>
                 <button type="submit" id="finalizado">Cerrar Proyecto</button>
-            </form>
+            </form>-->  
+
+
 
             <h1>Terminar proyecto</h1>
             <form action="operaciones.php?ac=6" method="POST" id="formularo_cerrar_proyecto" name="formularo_cerrar_proyecto" class="formulario">

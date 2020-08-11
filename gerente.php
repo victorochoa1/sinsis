@@ -42,7 +42,7 @@ include("valida.php");
                 <table>
                     <thead>
                         <tr>
-                            <th>Nombre</th>                            
+                            <th>Nombre consultor</th>                            
                             <th>--</th>
                             <th>Proyecto asignado</th>
                         </tr>
@@ -57,12 +57,42 @@ include("valida.php");
                         <tr>
                             <td><?php echo $mostrar["nombre"] ?></td>
                             <td>--</td>
-                            <td><?php echo $mostrar["nombre_proyecto"] ?></td>
+                            <td> <?php echo $mostrar["nombre_proyecto"] ?></td>
                         </tr>               
                     <?php
                     }
                     ?>
                 </table><br><br>
+                <p>Proyectos cerrados</p>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Empresa</th>
+                            <th>Estatus</th>                            
+                        </tr>
+                    </thead>
+                    <?php 
+                    $sql="SELECT * FROM proyectos WHERE cerrado = 1";
+                    $result=mysqli_query($db,$sql);                            
+                            while($mostrar=mysqli_fetch_array($result)){
+                                if($mostrar['cerrado']=="0")
+                                {
+                                    $mostrar['cerrado']= "Inconcluso";
+                                }
+                                else if ($mostrar['cerrado']=="1")
+                                {
+                                    $mostrar['cerrado']= "Finalizado";
+                                }
+                    ?>
+                    <tr>
+                        <th><?php echo $mostrar['nombre_proyecto']  ?></th> 
+                        <th><?php echo $mostrar['cerrado']  ?></th>    
+                    </tr>
+                    <?php 
+                    }
+                    ?>
+                </table>
+                <br><br>
             </div>
         </div>
         

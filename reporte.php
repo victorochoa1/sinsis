@@ -9,6 +9,7 @@
 	$resultado = $mysqli->query($query);
 	var_dump($resultado);
 	
+	
 	$pdf = new PDF();
 	$pdf->AliasNbPages();
 	$pdf->AddPage();

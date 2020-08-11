@@ -18,8 +18,8 @@
     <nav class="encabezado-nav">
         <ul>
             <li><a href="entrevista.php">Entrevista nueva</a></li>
-            <li><a href="#">Entrevistas</a></li>
-            <li><a href="proyectos.php">Proyectos iniciados</a></li>
+            <li><a href="entrevistas_realizadas.php">Entrevistas</a></li>
+            <li><a href="proyectos_cerrados_consultor.php">Proyectos cerrados</a></li>
             
         </ul>
         

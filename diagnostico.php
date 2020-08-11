@@ -38,7 +38,7 @@ include("valida.php");
            <!-- <form action="diagnostico_vista.php" method="POST" id="formularo_mostrar_diagnostico" name="formularo_mostrar_diagnostico" class="formulario">--> 
             <!--<form action="reporte.php" method="POST" id="formularo_mostrar_diagnostico" name="formularo_mostrar_diagnostico" class="formulario">-->
             
-            <form action="reporte.php" method="POST" id="formularo_mostrar_diagnostico" name="formularo_mostrar_diagnostico" class="formulario">
+            <form action="diagnosticopdf.php" method="POST" id="formularo_mostrar_diagnostico" name="formularo_mostrar_diagnostico" class="formulario">
                 <label for="diagnostico_ver">
                 <select name="diagnostico_ver" id="diagnostico_ver">
                     <option value="" selected="selected" disabled="disabled">--Selecciona--</option>
@@ -50,15 +50,11 @@ include("valida.php");
                     <option value="<?php echo $opciones ['id_proyectos'] ?>"><?php echo $opciones ['nombre_proyecto'] ?> </option>
                     <?php endforeach ?>
                 </select>
-                </label>
-                
+                </label>                
                 <button type="submit" id="finalizado">Ir a diagnostico</button>
             </form>
-            <br><br>
-                        
-        </div>
-        
-
+            <br><br>                        
+        </div>    
     </center>
 
 </body>

@@ -39,6 +39,7 @@ include("valida.php");
             <form action="operaciones.php?ac=3" method="POST" id="formulario_proyecto" name="formulario_proyecto" class="formulario">
                 <label for="proyecto_nuevo">Ingresa el nombre del proyecto/empresa <input type="text" name="proyecto_nuevo" id="proyecto_nuevo" placeholder="Nuevo proyecto"></label><br>
                 <label for="razon_social">Razon social <input type="text" name="razon_social" id="razon_social" placeholder="Razon Social"></label><br>
+                <br>
                 <label for="direccion">Direccion de la empresa <br><textarea name="direccion" id="direccion" cols="30" rows="10"></textarea></label><br>
                 <label for="">Consultores asignados a proyecto</label><br>
                 <table>
@@ -64,12 +65,13 @@ include("valida.php");
                     }
                     ?>
                 </table>
-                
+                <br><br>
                 <input type="hidden" name="cerrado" value="0">
                 <input type="submit" value="Crear proyecto" id="nuevo_pro">
                 
 
             </form>
+            <br><br>
         </div>
         
 

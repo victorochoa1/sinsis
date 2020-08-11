@@ -225,7 +225,7 @@ if($_POST > 0 ){
 
     }
     //Cerrar varios proyectos
-    //Funciona sin regresar a los consultores a no asignado
+    //Funciona sin regresar a los consultores a no asignado y ya no esta activa esta funcion
     if($accion == 4){
 
         var_dump($_POST);
@@ -291,7 +291,7 @@ if($_POST > 0 ){
         $stmt->execute();
         echo'primera consulta';
         echo'</br>';
-        var_dump($stmt);
+        //var_dump($stmt);
         echo'</br>';
 
         if  ($stmt->affected_rows > 0)
@@ -314,11 +314,92 @@ if($_POST > 0 ){
         }
         else
         {
+            header("Location:proyectos_iniciados.php");
             echo'</br>';
             echo'fail';
             //header("Location:proyectos_iniciados.php");
         } 
 
+    }
+
+    //Funciona  modificar proyecto e insertar en proyecto_usuario
+    if($accion == 8){
+        $proyecto_editar =$_POST['id_proyecto'];
+        $nuevo_nombre=$_POST['proyecto_nuevo'];
+        $nueva_razon =$_POST['razon_social'];
+        $nueva_direcc =$_POST['direccion'];
+        $usuarios=$_POST["usuario"];
+
+        $query="UPDATE `proyectos` SET `nombre_proyecto` = '$nuevo_nombre', `razon_social` = '$nueva_razon', `direccion` = '$nueva_direcc' WHERE `proyectos`.`id_proyectos` = $proyecto_editar ";
+        $stmt=$db->prepare($query);
+        $stmt->execute();
+        if  ($stmt->affected_rows>0){
+            if($usuarios != NULL){
+                //echo 'entramos a la segunda consulta';           
+                    $id_proyecto = $stmt->insert_id;                   
+                    $i=0;
+                    foreach ($usuarios as $id_usuario ) {
+                        //echo 'entramos a la tercera consulta';
+                        var_dump($_POST);
+                        //UPDATE `usuario` SET `proyecto` = '4' WHERE `usuario`.`id_usuario` = 6;
+                        $query2="INSERT INTO `proyecto_usuario` (`id_proyecto_usuario`, `id_proyectos`, `id_usuario`) VALUES (NULL, ?,?);";
+                        //$query2="UPDATE `usuario` SET `proyecto` = '$id_proyecto' WHERE `usuario`.`id_usuario` = ?";
+                        $stmt=$db->prepare($query2);
+                        $stmt->bind_param('ii',$proyecto_editar, $usuarios[$i]);
+                        //$stmt->bind_param('i',$usuarios[$i]);
+                        $stmt->execute(); 
+                        $i++;
+                    }
+                    if  ($stmt->affected_rows>0){
+                       header("Location:proyectos_iniciados.php");                        
+                    }
+            }else{
+                header("Location:proyectos_iniciados.php");
+            }
+
+           
+        
+
+    }else{
+        header("Location:proyectos_iniciados.php");
+    }
+}
+
+    //editar usuario/consultor
+    if($accion == 9){
+        var_dump($_POST);
+        //array(5) { ["nombre_empleado"]=> string(6) "Garfio" ["apellido_empleado"]=> string(9) "zanahoria" ["contraseña"]=> string(3) "123" ["correo"]=> string(18) "garfio@naranja.com" ["gerente"]=> string(1) "1" }
+        $usuario =$_POST['id_usuario'];
+        $nombre_emp=$_POST["nuevo_nombre_empleado"];
+        $apellido_emp=$_POST["nuevo_apellido_empleado"];
+        $contraseña=$_POST["nueva_contraseña"];
+        $correo=$_POST["nuevo_correo"];
+        $gerente = (is_numeric($_POST['gerente']) ? (int)$_POST['gerente'] : 0);
+        
+        
+        //UPDATE `usuario` SET `nombre` = 'el empleado', `apellidos` = 'apellidos nuevos', `correo` = 'corero nuevo', `contrasena` = '0123', `gerente` = '1' WHERE `usuario`.`id_usuario` = 10;
+        $query="UPDATE `usuario` SET `nombre` = '$nombre_emp', `apellidos` = '$apellido_emp', `correo` = '$correo', `contrasena` = '$contraseña', `gerente` = '$gerente' WHERE `usuario`.`id_usuario` = $usuario;
+        ";
+        //var_dump($query);
+        $stmt=$db->prepare($query);
+        $stmt->execute();
+        if  ($stmt->affected_rows>0){
+            header("Location:alta_user.php");
+            //echo 'actualizado';
+        }else{
+            
+            header("Location:gerente.php");
+            //echo 'error';
+        }
+
+    }
+
+    if($accion == 10){
+        var_dump($_POST);
+        echo 'hasta aqui voy, esta pestaña no se que funcion ponerle';
+
+    }else{
+        header("Location:proyectos_cerrados_consultor.php");
     }
 
 }

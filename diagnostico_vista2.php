@@ -10,31 +10,44 @@ include("valida.php");
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/ico" href="ico.ico" />
     <title>SinSis</title>
 </head>
 
 <body id="">
-   
-<p id="diagnostico">
+    <center></center>
+    <div id="div_formu"> </div>
+
+    <header class="encabezado">
+        <nav class="encabezado-nav">
+            <ul>
+            <?php include 'barra_navegacion.php' ?>  
+            </ul>
+        </nav>
+    </header>
+    <center>
+        <div id="div_formu"> </div>
+        <div id="formu"> <br>        
+         
+        <p id="diagnostico">
         <?php 
-        //var_dump($_POST); 
+        var_dump($_POST); 
         echo '</br>';
         echo '</br>';
         echo '</br>';
         echo '</br>';
         //array(1) { ["diagnostico_ver"]=> string(1) "1" }
-        //$diagnostico = (is_numeric($_POST['diagnostico_ver']) ? (int)$_POST['diagnostico_ver'] : 0);
-        $diagnostico = 1;
+        $diagnostico = (is_numeric($_POST['diagnostico_ver']) ? (int)$_POST['diagnostico_ver'] : 0);
+        //$diagnostico = $_POST["diagnostico_ver"];
         //var_dump($diagnostico);
 
         //SELECT * FROM entrevista, usuario, proyectos WHERE entrevista.proyecto = proyectos.id_proyectos AND usuario.proyecto = proyectos.id_proyectos;
         $sql = "SELECT * FROM entrevista, usuario, proyectos, proyecto_usuario WHERE entrevista.proyecto = proyectos.id_proyectos AND proyecto_usuario.id_proyectos = proyectos.id_proyectos AND proyecto_usuario.id_usuario = usuario.id_usuario AND proyectos.id_proyectos=  $diagnostico";
-        //var_dump($sql);
+        var_dump($sql);
         $result=mysqli_query($db,$sql);
         $mostrar=mysqli_fetch_array($result);
-        //var_dump($mostrar);
+        var_dump($mostrar);
         //var_dump( $mostrar["documentacion"]);
         
         if($mostrar["documentacion"]=="1"){
@@ -73,7 +86,7 @@ include("valida.php");
         echo '</br>';
         //echo $mostrar[15];            
         ?>
-        Diagnostico de la empresa  <?php echo $mostrar["nombre_proyecto"];?>  de la fecha <?php echo $mostrar[1];   ?><br><br><br>
+        Diagnostico de la empresa  echo $mostrar[31];  de la fecha <?php echo $mostrar[1];   ?><br><br><br>
 
         El diagnostico muestra que el problema principal de la empresa es <?php echo $mostrar["problema_1"];   ?>, que es lo que esta atrasando los procesos de la empresa <?php echo $mostrar[30]; ?>. <br>
         La empresa <?php echo $mostrar["documentacion"]; ?> cuenta con documentación. <br>
@@ -91,5 +104,10 @@ include("valida.php");
         
 
         </p>
+            
+        </div>
+        
+
+    </center>
 </body>
 </html>

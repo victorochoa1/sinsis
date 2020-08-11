@@ -104,6 +104,10 @@ textarea{
     border-color: whitesmoke;
 }
 
+#d_entrevista{
+width: 80%;
+
+}
 
 
 
@@ -227,6 +231,10 @@ textarea{
         font-size: 10px;
         width: 45px;
     }
+    #d_entrevista{
+        width: 80%;
+        font-size: 10px;
+        }
 
     
 }
@@ -342,6 +350,10 @@ textarea{
         border-radius: 7px;
         border-color: whitesmoke;
     }
+    #d_entrevista{
+        width: 80%;
+        font-size: 15px;
+        }
     
     
     

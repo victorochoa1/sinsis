@@ -36,21 +36,48 @@ include("valida.php");
         <!-- aqui enpieza tu formulario franco -->
         <!-- FRANCO -->     
             <form action="operaciones.php?ac=12" method="POST" id="formulario_empleado" name="formulario_empleado" class="formulario"><br>
-                <label for="nombre_empleado"> Nombre empleado <input type="text" name="nombre_empleado" id="nombre_empleado" placeholder="Nombre"></label><br>
-                <label for="apellido_empleado">Apellidos <input type="text" name="apellido_empleado" id="apellido_empleado" placeholder="Apellidos"></label><br>
-                <label for="contraseña">Contraseña <input type="password" name="contraseña" id="contra" placeholder="Contraseña"></label><br>
-                <label for="correo">Correo <input type="email" name="correo" id="correo" placeholder="Correo electronico"></label><br>
+            <table>
+                <tr>
+                    <td> <label for="nombre_empleado"> Nombre empleado </label></td>
+                    <td><input type="text" name="nombre_empleado" id="nombre_empleado" placeholder="Nombre"></td>
+                </tr>
+                <tr>
+                    <td><label for="apellido_empleado">Apellidos </label></td>
+                    <td><input type="text" name="apellido_empleado" id="apellido_empleado" placeholder="Apellidos"></td>
+                </tr>
+                <tr>
+                    <td><label for="contraseña">Contraseña </label></td>
+                    <td><input type="password" name="contraseña" id="contra" placeholder="Contraseña"></td>
+                </tr>
+                <tr>
+                    <td><label for="correo">Correo</label></td>
+                    <td> <input type="email" name="correo" id="correo" placeholder="Correo electronico"></td>
+                </tr>
+               
+            </table> <br>
+               
                 <label for="gerente">Gerente <br> Si<input type="radio" name="gerente" id="gerente1" value="1" > No<input type="radio" name="gerente" id="gerente0" value="0" checked="checked"> </label><br>
                 <input type="submit" value="Registrar empleado" id="reg_emp">
             </form>
+            <br>
 
-            <!-- <form action="alta.php?ac=6" method="POST" id="formulario_empleado" name="formulario_empleado" class="formulario"><br>
-                <label for="nombre_empleado"> Nombre empleado <input type="text" name="nombre_empleado" id="nombre_empleado" placeholder="Nombre"></label><br>
-                <label for="apellido_empleado">Apellidos <input type="text" name="apellido_empleado" id="apellido_empleado" placeholder="Apellidos"></label><br>
-                <label for="correo">Correo <input type="email" name="correo" id="correo" placeholder="Correo electronico"></label><br>
-                <br><br>
-                <input type="submit" value="Registrar empleado">
-            </form>--> 
+            <p>Editar empleado</p>
+            <form action="editarempleado.php" method="POST" id="formulario_editar_empleado" name="formulario_editar_empleado" class="formulario">
+                <label for="editar_empleado">
+                <select name="editar_empleado" id="editar_empleado">
+                    <option value="" selected="selected" disabled="disabled">--Selecciona--</option> 
+                    <?php
+                    $consulta2="SELECT * FROM usuario";
+                    $ejecutar=mysqli_query($db,$consulta2) or die (mysqli_error($db));
+                    foreach ($ejecutar as $opciones):
+                    ?>
+                    <option value="<?php echo $opciones ['id_usuario'] ?>"><?php echo $opciones ['nombre'] ?> </option>
+                    <?php endforeach ?>
+                </select>
+                </label>                <br> <br>
+                <button type="submit" id="finalizado">Editar empleado</button>
+            </form>
+            <br><br>      
         </div>
         
 
