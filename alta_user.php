@@ -77,8 +77,34 @@ include("valida.php");
                 </label>                <br> <br>
                 <button type="submit" id="finalizado">Editar empleado</button>
             </form>
-            <br><br>      
+            <br><br>   
+
+
+            <p>Eliminar empleado</p>
+            <form action="operaciones.php?ac=11" method="POST" id="formulario_eliminar_empleado" name="formulario_eliminar_empleado" class="formulario">
+                <label for="eliminar_empleado">
+                <select name="eliminar_empleado" id="eliminar_empleado">
+                    
+                    <?php
+                    $consulta2="SELECT * FROM usuario";
+                    $ejecutar=mysqli_query($db,$consulta2) or die (mysqli_error($db));
+                    foreach ($ejecutar as $opciones):
+                    ?>
+                    <option value="<?php echo $opciones ['id_usuario'] ?>"><?php echo $opciones ['nombre'] ?> </option>
+                    <?php endforeach ?>
+                </select>
+                </label>                <br> <br>
+                <button type="submit" id="">Eliminar empleado</button>
+            </form>
+            <br><br>  
+
+
+
+
         </div>
+
+       
+
         
 
     </center>

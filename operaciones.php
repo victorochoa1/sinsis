@@ -269,11 +269,12 @@ if($_POST > 0 ){
 
         //var_dump($_POST);
         //array(1) { ["diagnostico_cerrar"]=> string(1) "3" }
-        $cerrar = (is_numeric($_POST['diagnostico_cerrar']) ? (int)$_POST['diagnostico_cerrar'] : 0);
+        $cerrar = (is_numeric($_POST['diagnostico_cerrar']) ? (int)$_POST['diagnostico_cerrar'] : 0); //este es el id del proyecto, no del diagnostico
         $sql = "SELECT * FROM proyecto_usuario, proyectos, usuario WHERE proyecto_usuario.id_proyectos=  proyectos.id_proyectos AND proyecto_usuario.id_usuario = usuario.id_usuario AND proyectos.id_proyectos = $cerrar";
         $result=mysqli_query($db,$sql);
         $mostrar=mysqli_fetch_array($result);        
         $proyecto_eliminar = $mostrar['id_proyectos'];
+        $diagnostico =$_POST['diagnostico']; //este si es un array de los diagnosticos seleccionados
         
         //var_dump($mostrar);
         /*array(26) { [0]=> string(1) "2" ["id_proyecto_usuario"]=> string(1) "2" [1]=> string(1) "2" 
@@ -305,9 +306,23 @@ if($_POST > 0 ){
             $stmt2=$db->prepare($sql2);
             $stmt2->execute();
             if  ($stmt2->affected_rows > 0){
-                echo'</br>';
-                echo'exito';
-                header("Location:proyectos_iniciados.php");
+                $i=0;
+                foreach ($diagnostico as $idDiagnostico) {
+                    //array(2) { ["diagnostico_cerrar"]=> string(1) "1" ["diagnostico"]=> array(2) { [0]=> string(1) "1" [1]=> string(1) "3" } }
+                    $sql3="INSERT INTO `proyecto_solucion` ( `id_proyecto`, `id_diagnostico`) VALUES ( '1', '1')";
+                    $stmt=$db->prepare($sql3);
+                    $stmt->bind_param('ii',$cerrar, $diagnostico[$i]);
+                    //$stmt->bind_param('i',$usuarios[$i]);
+                    $stmt->execute(); 
+                    $i++;
+                }
+                if  ($stmt->affected_rows>0){
+                    header("Location:proyectos_iniciados.php");                        
+                 }
+                //var_dump($_POST);
+                //array(2) { ["diagnostico_cerrar"]=> string(1) "1" ["diagnostico"]=> array(2) { [0]=> string(1) "1" [1]=> string(1) "3" } }
+                //$sql3="INSERT INTO";
+                //header("Location:proyectos_iniciados.php");
             }
             
             
@@ -398,12 +413,48 @@ if($_POST > 0 ){
         var_dump($_POST);
         echo 'hasta aqui voy, esta pestaña no se que funcion ponerle';
 
-    }else{
-        header("Location:proyectos_cerrados_consultor.php");
+    }
+
+    //Eliminar un usuario
+    if($accion == 11){
+        //var_dump($_POST);
+        $empleado_eliminar =$_POST['eliminar_empleado'];
+        $sql2 = "DELETE FROM `proyecto_usuario` WHERE `proyecto_usuario`.`id_usuario` = $empleado_eliminar";
+        $stmt=$db->prepare($sql2);
+        $stmt->execute();
+
+        //DELETE FROM `usuario` WHERE `usuario`.`id_usuario` = $empleado_eliminar
+        $sql = "DELETE FROM `usuario` WHERE `usuario`.`id_usuario` = $empleado_eliminar";
+        $stmt=$db->prepare($sql);
+        $stmt->execute();
+        if  ($stmt->affected_rows>0){
+            header("Location:alta_user.php");
+            //echo 'actualizado';
+        }else{
+            
+            header("Location:gerente.php");
+            //echo 'error';
+        }
     }
 
 }
 
 
+
+//Este es la operacion que se tiene que realizar cuando se genera un diagnostico pdf, el parametro "proyecto" es el id del proyecto y el parametro ruta
+//es la direccion de guardado del archivo
+//$proyecto y $ruta son variables que tengo que recibir
+
+/*//INSERT INTO `diagnostico` (`id_diagnostico`, `proyecto`, `ruta`) VALUES (NULL, '16', '/diagnosticos/diagnostico.pdf'), (NULL, '3', '/diagnosticos/diagnostico2.pdf');
+$sql3="INSERT INTO `diagnostico` ( `proyecto`, `ruta`) VALUES ( ?,?)";
+$stmt=$db->prepare($sql3);
+$stmt->bind_param('is',$proyecto, $ruta);
+//$stmt->bind_param('i',$usuarios[$i]);
+$stmt->execute(); 
+//$i++;
+
+if  ($stmt->affected_rows>0){
+header("Location:diagnostico.php");                        
+} */
 
 ?>
