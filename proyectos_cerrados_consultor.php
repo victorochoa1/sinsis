@@ -73,25 +73,25 @@ $id = $_SESSION['id_usuario'];
                     }
                     ?>
                 </table>
-
+                <!--                    
                 <h1>Ver proyecto</h1>
                 <form action="operaciones.php?ac=10" method="POST" id="formularo_ver_proyecto" name="formularo_ver_proyecto" class="formulario">
                 <label for="proyecto_ver">
                 <select name="proyecto_editar" id="proyecto_ver">
                 <option value="" selected="selected" disabled="disabled">--Selecciona--</option>
-                    <?php
+                    <?php/*
                     $consulta="SELECT * FROM proyecto_usuario, proyectos, usuario WHERE proyecto_usuario.id_proyectos = proyectos.id_proyectos AND proyecto_usuario.id_usuario = usuario.id_usuario AND usuario.id_usuario = $id  ";
                     $ejecutar=mysqli_query($db,$consulta) or die (mysqli_error($db));
-                    foreach ($ejecutar as $opciones):
+                    foreach ($ejecutar as $opciones):*/
                     ?>
-                    <option value="<?php echo $opciones ['id_proyectos'] ?>"><?php echo $opciones ['nombre_proyecto'] ?> </option>
-                    <?php endforeach ?>
+                    <option value="<?php //echo $opciones ['id_proyectos'] ?>"><?php //echo $opciones ['nombre_proyecto'] ?> </option>
+                    <?php //endforeach ?>
                 </select>
                 </label>
                 
                 <button type="submit" id="">Ver Proyecto</button>
             </form>
-
+                -->
             </div>
             <br><br>
         </div>

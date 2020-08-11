@@ -70,11 +70,10 @@ include("valida.php");
 
 
 
-            <h1>Terminar proyecto</h1>
-            <form action="operaciones.php?ac=6" method="POST" id="formularo_cerrar_proyecto" name="formularo_cerrar_proyecto" class="formulario">
+            <h1>Generar solución</h1>
+            <form action="anexardiagnostico.php" method="POST" id="formularo_cerrar_proyecto" name="formularo_cerrar_proyecto" class="formulario">
                 <label for="diagnostico_cerrar">
                 <select name="diagnostico_cerrar" id="diagnostico_cerrar">
-                <option value="" selected="selected" disabled="disabled">--Selecciona--</option>
                     <?php
                     $consulta="SELECT * FROM proyectos WHERE cerrado = 0";
                     $ejecutar=mysqli_query($db,$consulta) or die (mysqli_error($db));
@@ -84,8 +83,10 @@ include("valida.php");
                     <?php endforeach ?>
                 </select>
                 </label>
+
                 
-                <button type="submit" id="finalizar_proyecto">Cerrar Proyecto</button>
+                
+                <button type="submit" id="finalizar_proyecto">Elegir proyecto</button>
             </form>
 
             <br><br>
@@ -93,7 +94,6 @@ include("valida.php");
             <form action="editar_proyecto.php?ac=7" method="POST" id="formularo_editar_proyecto" name="formularo_editar_proyecto" class="formulario">
                 <label for="proyecto_editar">
                 <select name="proyecto_editar" id="proyecto_editar">
-                <option value="" selected="selected" disabled="disabled">--Selecciona--</option>
                     <?php
                     $consulta="SELECT * FROM proyectos WHERE cerrado = 0";
                     $ejecutar=mysqli_query($db,$consulta) or die (mysqli_error($db));
