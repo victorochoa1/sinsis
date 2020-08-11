@@ -1,7 +1,5 @@
 <?php
 include('conexion.php');
-//var_dump($_POST);
-//echo'$_POST';
 include("valida.php");
 ?>
 
@@ -74,7 +72,6 @@ include("valida.php");
         //echo $mostrar[15];            
         ?>
         Diagnostico de la empresa  <?php echo $mostrar["nombre_proyecto"];?>  de la fecha <?php echo $mostrar[1];   ?><br><br><br>
-
         El diagnostico muestra que el problema principal de la empresa es <?php echo $mostrar["problema_1"];   ?>, que es lo que esta atrasando los procesos de la empresa <?php echo $mostrar[30]; ?>. <br>
         La empresa <?php echo $mostrar["documentacion"]; ?> cuenta con documentación. <br>
         Documentos anexos: <?php echo $mostrar[9]; ?> <br>
@@ -82,6 +79,8 @@ include("valida.php");
         En la empresa <?php echo $mostrar[30]; ?> se aplican las herramientas de evaluación de ambiente cada <?php echo $mostrar["frecuencia_evaluar"]; ?>. <br>
         Mientras que las frecuencia de capacitacion de empleados es de <?php echo $mostrar["frecuencia_capacitacion"]; ?> <br>
         <?php echo $mostrar["conocimiento_de_reglamentos"]; ?> se conoce o se tiene registro de los reglamentos, leyes o normas a las cuales se tiene que alinear la empresa, que son: <br>
+
+
         <?php echo $mostrar["nombrar_reglamentos"]; ?> <br>
         Segun el criterio del entrevistado <?php echo $mostrar["nombre_entrevistado"]; ?>, no se estan cumpliendo <?php echo $mostrar["criterio"]; ?> <br>
         <?php echo $mostrar["estado_financiero_empresa"]; ?> se conoce el estado financiero de la empresa <br>

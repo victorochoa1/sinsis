@@ -1,4 +1,4 @@
-<?php
+<?php ob_start();
 include('conexion.php');
 include("valida.php");
 ?>
@@ -43,8 +43,10 @@ include("valida.php");
                 <select name="diagnostico_ver" id="diagnostico_ver">
                     <option value="" selected="selected" disabled="disabled">--Selecciona--</option>
                     <?php
+                    $instance = ConnectDb::getInstance();
+                    $conn = $instance->getConnection();
                     $consulta2="SELECT * FROM proyectos WHERE cerrado = 0";
-                    $ejecutar=mysqli_query($db,$consulta2) or die (mysqli_error($db));
+                    $ejecutar=mysqli_query($conn,$consulta2) or die (mysqli_error($conn));
                     foreach ($ejecutar as $opciones):
                     ?>
                     <option value="<?php echo $opciones ['id_proyectos'] ?>"><?php echo $opciones ['nombre_proyecto'] ?> </option>
