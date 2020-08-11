@@ -401,7 +401,33 @@ if($_POST > 0 ){
     }else{
         header("Location:proyectos_cerrados_consultor.php");
     }
+    if($accion == 10){
+        var_dump($_POST);
+        echo 'hasta aqui voy, esta pestaña no se que funcion ponerle';
 
+    }
+
+    //Eliminar un usuario
+    if($accion == 11){
+        //var_dump($_POST);
+        $empleado_eliminar =$_POST['eliminar_empleado'];
+        $sql2 = "DELETE FROM `proyecto_usuario` WHERE `proyecto_usuario`.`id_usuario` = $empleado_eliminar";
+        $stmt=$db->prepare($sql2);
+        $stmt->execute();
+
+        //DELETE FROM `usuario` WHERE `usuario`.`id_usuario` = $empleado_eliminar
+        $sql = "DELETE FROM `usuario` WHERE `usuario`.`id_usuario` = $empleado_eliminar";
+        $stmt=$db->prepare($sql);
+        $stmt->execute();
+        if  ($stmt->affected_rows>0){
+            header("Location:alta_user.php");
+            //echo 'actualizado';
+        }else{
+            
+            header("Location:gerente.php");
+            //echo 'error';
+        }
+    }
 }
 
 
