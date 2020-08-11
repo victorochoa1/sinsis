@@ -39,10 +39,8 @@ class PDF {
     }
 
     public function obtenerDatosDelDiagnostico()
-    { 
-        $instance = ConnectDb::getInstance();
-        $conn = $instance->getConnection();
-
+    {         
+        include("conexion.php");
         $sql = "SELECT * FROM entrevista, usuario, proyectos, proyecto_usuario 
                     WHERE entrevista.proyecto = proyectos.id_proyectos
                         AND proyecto_usuario.id_proyectos = proyectos.id_proyectos
@@ -50,7 +48,8 @@ class PDF {
                         AND proyectos.id_proyectos =  $this->idDiagnostico";
                        
        
-        $result = mysqli_query($conn,$sql);
+        $result = mysqli_query($db,$sql);
+
        return $datosDiagnostico=mysqli_fetch_array($result);
       
     }
