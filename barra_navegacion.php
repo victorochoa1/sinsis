@@ -22,6 +22,7 @@
             <li><a href="proyectos_iniciados.php">Proyectos iniciados</a></li>
             <li><a href="proyectos_cerrados.php">Proyectos cerrados</a></li>
             <li><a href="diagnostico.php">Diagnosticos</a></li> <!-- este enlace manda a una pestaña nueva -->
+            <li><a href="soluciones.php">Soluciones</a></li>
             
         </ul>
     </nav>
