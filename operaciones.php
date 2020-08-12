@@ -309,7 +309,7 @@ if($_POST > 0 ){
                 $i=0;
                 foreach ($diagnostico as $idDiagnostico) {
                     //array(2) { ["diagnostico_cerrar"]=> string(1) "1" ["diagnostico"]=> array(2) { [0]=> string(1) "1" [1]=> string(1) "3" } }
-                    $sql3="INSERT INTO `proyecto_solucion` ( `id_proyecto`, `id_diagnostico`) VALUES ( '1', '1')";
+                   $sql3="INSERT INTO `proyecto_solucion` ( `id_proyecto`, `id_diagnostico`) VALUES ( ?,?)";
                     $stmt=$db->prepare($sql3);
                     $stmt->bind_param('ii',$cerrar, $diagnostico[$i]);
                     //$stmt->bind_param('i',$usuarios[$i]);
