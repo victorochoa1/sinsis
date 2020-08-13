@@ -43,7 +43,8 @@ $id = $_SESSION['id_usuario'];
                         </tr>
                     </thead>
                     <?php
-                    $query="SELECT * FROM proyecto_usuario, usuario, proyectos WHERE proyecto_usuario.id_usuario = usuario.id_usuario AND proyecto_usuario.id_proyectos = proyectos.id_proyectos AND proyecto_usuario.id_usuario = $id";
+                    $query="SELECT * FROM proyecto_usuario, usuario, proyectos WHERE proyecto_usuario.id_usuario = usuario.id_usuario 
+                    AND proyecto_usuario.id_proyectos = proyectos.id_proyectos AND proyecto_usuario.id_usuario = $id";
                     //$query_user ="SELECT * FROM proyectos, usuario WHERE usuario.proyecto = proyectos.id_proyectos";                    
                     $i=1;
                     $result=mysqli_query($db,$query);
@@ -71,10 +72,10 @@ $id = $_SESSION['id_usuario'];
                 <form action="editar_entrevista.php?ac=10" method="POST" id="entrevista_ver" name="entrevista_ver" class="formulario">
                 <label for="entrevista_ver">
                 <select name="entrevista_ver" id="entrevista_ver">
-                <option value="" selected="selected" disabled="disabled">--Selecciona--</option>
                     <?php
                     //SELECT * FROM proyecto_usuario, usuario, proyectos, entrevista WHERE proyecto_usuario.id_usuario = usuario.id_usuario AND proyecto_usuario.id_proyectos = proyectos.id_proyectos AND proyectos.id_proyectos = entrevista.proyecto
-                    $consulta="SELECT * FROM proyecto_usuario, usuario, proyectos, entrevista WHERE proyecto_usuario.id_usuario = usuario.id_usuario AND proyecto_usuario.id_proyectos = proyectos.id_proyectos AND proyectos.id_proyectos = entrevista.proyecto AND proyecto_usuario.id_usuario = $id";
+                    $consulta="SELECT * FROM proyecto_usuario, usuario, proyectos, entrevista WHERE proyecto_usuario.id_usuario = usuario.id_usuario
+                     AND proyecto_usuario.id_proyectos = proyectos.id_proyectos AND proyectos.id_proyectos = entrevista.proyecto AND usuario.id_usuario = $id";
                     //$consulta="SELECT * FROM proyecto_usuario, proyectos, usuario WHERE proyecto_usuario.id_proyectos = proyectos.id_proyectos AND proyecto_usuario.id_usuario = usuario.id_usuario AND usuario.id_usuario = $id  ";
                     $ejecutar=mysqli_query($db,$consulta) or die (mysqli_error($db));
                     foreach ($ejecutar as $opciones):
