@@ -63,7 +63,7 @@ var_dump($_SESSION);
                         $ejecutar=mysqli_query($conexion,$query) or die (mysqli_error($conexion));
                         foreach($ejecutar as $opciones2):
                         ?>
-                        <option value="<?php echo $opciones2['id_usuario'] ?>"><?php echo $opciones2['nombre_proyecto'] ?></option>
+                        <option value="<?php echo $opciones2['id_proyectos'] ?>"><?php echo $opciones2['nombre_proyecto'] ?></option>
                         <?php endforeach ?>
                         </select></label></td>
                     </tr>

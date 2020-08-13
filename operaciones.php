@@ -57,6 +57,8 @@ if($_POST > 0 ){
     //Funciona
     if($accion == 2){
         var_dump($_POST);
+        //echo '</br>';
+        //echo '</br>';
 
         $usuario = (is_numeric($_POST['usuario']) ? (int)$_POST['usuario'] : 0);
         $fecha_entrevista=$_POST["fecha_entrevista"];
@@ -148,17 +150,50 @@ if($_POST > 0 ){
 
         
         /* */
-        //
-        //INSERT INTO `entrevista` (`id_entrevista`, `fecha`, `nombre_entrevistado`, `telefono_entrevistado`, `correo_entrevistado`, `puesto`, `problema_1`, `problema_2`, `documentacion`, `que_documentos`, `conocimiento_empleados`, `acceso_empleados`, `frecuencia_evaluar`, `frecuencia_capacitacion`, `conocimiento_de_reglamentos`, `nombrar_reglamentos`, `criterio`, `estado_financiero_empresa`, `actualizacion_estado_financiero`, `software_utilizado`, `porcentaje_licencia_vigente`, `anotaciones`, `proyecto`, `usuario`) VALUES (NULL, '2020-08-05', 'nombre entrevistado', 'telefono', 'correo@correo.correo', '2', 'problema 1', 'problema 2', '1', 'Que documentos', '1', '1', '15', '30', '0', 'Nombrar reglamentos', 'Criterio de la empresa', '1', '15', 'Excel', '99', 'Antaciones', '1','2');
-        $query="INSERT INTO `entrevista` (`fecha`, `nombre_entrevistado`, `telefono_entrevistado`, `correo_entrevistado`, `puesto`, `problema_1`, `problema_2`, `documentacion`, `que_documentos`, `conocimiento_empleados`, `acceso_empleados`, `frecuencia_evaluar`, `frecuencia_capacitacion`, `conocimiento_de_reglamentos`, `nombrar_reglamentos`, `criterio`, `estado_financiero_empresa`, `actualizacion_estado_financiero`, `software_utilizado`, `porcentaje_licencia_vigente`, `anotaciones`, `proyecto`, `usuario`) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+        /*
+        //INSERT INTO `entrevista` (`id_entrevista`, `fecha`, `nombre_entrevistado`, `telefono_entrevistado`, `correo_entrevistado`, 
+        //`puesto`, `problema_1`, `problema_2`, `documentacion`, `que_documentos`, 
+        `conocimiento_empleados`, `acceso_empleados`, `frecuencia_evaluar`, `frecuencia_capacitacion`, `conocimiento_de_reglamentos`, 
+        `nombrar_reglamentos`, `criterio`, `estado_financiero_empresa`, `actualizacion_estado_financiero`, `software_utilizado`, 
+        `porcentaje_licencia_vigente`, `anotaciones`, `proyecto`, `usuario`)
+         VALUES (NULL, '2020-08-05', 'nombre entrevistado', 'telefono', 'correo@correo.correo', '2', 'problema 1', 'problema 2', '1', 'Que documentos', '1', '1', '15', '30', '0', 'Nombrar reglamentos', 'Criterio de la empresa', '1', '15', 'Excel', '99', 'Antaciones', '1','2');
+
+
+        */
+        echo '</br>';
+        echo 'proyecto';
+        var_dump($proyecto);
+        echo '</br>';
+        $query="INSERT INTO `entrevista` (`fecha`, `nombre_entrevistado`, `telefono_entrevistado`, `correo_entrevistado`,
+         `puesto`, `problema_1`, `problema_2`, `documentacion`, `que_documentos`, 
+         `conocimiento_empleados`, `acceso_empleados`, `frecuencia_evaluar`, `frecuencia_capacitacion`, `conocimiento_de_reglamentos`, 
+         `nombrar_reglamentos`, `criterio`, `estado_financiero_empresa`, `actualizacion_estado_financiero`, `software_utilizado`, 
+         `porcentaje_licencia_vigente`, `anotaciones`, `proyecto`, `usuario`) 
+         VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+        echo '.1-';
         $stmt=$db->prepare($query);
-        $stmt->bind_param('isssissisiissississisii',$fecha_entrevista,$nombre_entrevistado,$telefono_empresa,$correo_empresa,$puesto_entrevistado,$problema1,$problema2,$documentacion,$que_documentos,$conocimiento_empleados,$acceso_empleados,$frecuencia_evaluar,$frecuencia_capacitacion,$conocimiento_de_reglamentos,$nombrar_reglamemtos,$criterio,$estado_financiero_empresa,$actualizacion_estado_financiero,$software_utilizado,$porcentaje_licencia_vigente,$anotaciones,$proyecto,$usuario);
+        echo '0';
+        $stmt->bind_param('isssissisiissississisii',$fecha_entrevista,$nombre_entrevistado,$telefono_empresa,
+        $correo_empresa,$puesto_entrevistado,$problema1,$problema2,$documentacion,$que_documentos,
+        $conocimiento_empleados,$acceso_empleados,$frecuencia_evaluar,$frecuencia_capacitacion,$conocimiento_de_reglamentos,$nombrar_reglamemtos,
+        $criterio,$estado_financiero_empresa,$actualizacion_estado_financiero,$software_utilizado,$porcentaje_licencia_vigente,$anotaciones,
+        $proyecto,$usuario);
+        echo '1';
         $stmt->execute();
+        echo '2';
+        echo '</br>';
+        var_dump($stmt);
+        echo '</br>';
+        echo '3';
+        echo '</br>';
         //var_dump($stmt);
         //var_dump($query);
-        if($stmt == true){
+        if  ($stmt->affected_rows>0)
+        //if($stmt == true)
+        {
+            echo '4';
             //echo'actualizado';
-            header("Location:entrevista.php");
+            header("Location:entrevistas_realizadas.php");
         }else{
             echo'aqui hay un error';
         }
@@ -291,7 +326,7 @@ if($_POST > 0 ){
         $stmt->bind_param('i',$cerrar);
         $stmt->execute();
         echo'primera consulta';
-        echo'</br>';
+        echo'</>';
         //var_dump($stmt);
         echo'</br>';
 
@@ -309,7 +344,7 @@ if($_POST > 0 ){
                 $i=0;
                 foreach ($diagnostico as $idDiagnostico) {
                     //array(2) { ["diagnostico_cerrar"]=> string(1) "1" ["diagnostico"]=> array(2) { [0]=> string(1) "1" [1]=> string(1) "3" } }
-                    $sql3="INSERT INTO `proyecto_solucion` ( `id_proyecto`, `id_diagnostico`) VALUES ( '1', '1')";
+                    $sql3="INSERT INTO `proyecto_solucion` ( `id_proyecto`, `id_diagnostico`) VALUES ( ?,?  )";
                     $stmt=$db->prepare($sql3);
                     $stmt->bind_param('ii',$cerrar, $diagnostico[$i]);
                     //$stmt->bind_param('i',$usuarios[$i]);
