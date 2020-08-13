@@ -344,7 +344,11 @@ if($_POST > 0 ){
                 $i=0;
                 foreach ($diagnostico as $idDiagnostico) {
                     //array(2) { ["diagnostico_cerrar"]=> string(1) "1" ["diagnostico"]=> array(2) { [0]=> string(1) "1" [1]=> string(1) "3" } }
+<<<<<<< HEAD
                     $sql3="INSERT INTO `proyecto_solucion` ( `id_proyecto`, `id_diagnostico`) VALUES ( ?,?  )";
+=======
+                   $sql3="INSERT INTO `proyecto_solucion` ( `id_proyecto`, `id_diagnostico`) VALUES ( ?,?)";
+>>>>>>> 0bb06d8f74f5f750fc753511ea7d204776fcb371
                     $stmt=$db->prepare($sql3);
                     $stmt->bind_param('ii',$cerrar, $diagnostico[$i]);
                     //$stmt->bind_param('i',$usuarios[$i]);
