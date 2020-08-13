@@ -44,11 +44,11 @@ include("valida.php");
                     <option value="" selected="selected" disabled="disabled">--Selecciona--</option>
                     <?php
                    
-                    $consulta2="SELECT * FROM proyectos WHERE cerrado = 0";
+                   $consulta2="SELECT * FROM entrevista, proyectos WHERE entrevista.proyecto = proyectos.id_proyectos AND proyectos.cerrado = 0";
                     $ejecutar=mysqli_query($db,$consulta2) or die (mysqli_error($db));
                     foreach ($ejecutar as $opciones):
                     ?>
-                    <option value="<?php echo $opciones ['id_proyectos'] ?>"><?php echo $opciones ['nombre_proyecto'] ?> </option>
+                  <option value="<?php echo $opciones ['id_proyectos'] ?>"><?php echo $opciones ['nombre_proyecto'] ?> entrevista a <?php echo $opciones['nombre_entrevistado'] ?> </option>
                     <?php endforeach ?>
                 </select>
                 </label>                
