@@ -1,6 +1,6 @@
 <?php
 
-require_once include(__DIR__ . '/autoload.inc.phpp');
+ include(__DIR__ . '/dompdf/autoload.inc.php');
 require_once 'generarPdf.php';
 use Dompdf\Dompdf;
 
