@@ -1,4 +1,4 @@
-<?php ob_start();
+<?php
 include('conexion.php');
 include("valida.php");
 ?>
@@ -38,17 +38,16 @@ include("valida.php");
            <!-- <form action="diagnostico_vista.php" method="POST" id="formularo_mostrar_diagnostico" name="formularo_mostrar_diagnostico" class="formulario">--> 
             <!--<form action="reporte.php" method="POST" id="formularo_mostrar_diagnostico" name="formularo_mostrar_diagnostico" class="formulario">-->
             
+            <!--<form action="diagnosticopdf.php" method="POST" id="formularo_mostrar_diagnostico" name="formularo_mostrar_diagnostico" class="formulario">-->
             <form action="diagnosticopdf.php" method="POST" id="formularo_mostrar_diagnostico" name="formularo_mostrar_diagnostico" class="formulario">
                 <label for="diagnostico_ver">
                 <select name="diagnostico_ver" id="diagnostico_ver">
-                    <option value="" selected="selected" disabled="disabled">--Selecciona--</option>
                     <?php
-                   
-                   $consulta2="SELECT * FROM entrevista, proyectos WHERE entrevista.proyecto = proyectos.id_proyectos AND proyectos.cerrado = 0";
+                    $consulta2="SELECT * FROM entrevista, proyectos WHERE entrevista.proyecto = proyectos.id_proyectos AND proyectos.cerrado = 0";
                     $ejecutar=mysqli_query($db,$consulta2) or die (mysqli_error($db));
                     foreach ($ejecutar as $opciones):
                     ?>
-                  <option value="<?php echo $opciones ['id_proyectos'] ?>"><?php echo $opciones ['nombre_proyecto'] ?> entrevista a <?php echo $opciones['nombre_entrevistado'] ?> </option>
+                    <option value="<?php echo $opciones ['id_proyectos'] ?>"><?php echo $opciones ['nombre_proyecto'] ?> entrevista a <?php echo $opciones['nombre_entrevistado'] ?> </option>
                     <?php endforeach ?>
                 </select>
                 </label>                

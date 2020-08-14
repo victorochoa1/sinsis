@@ -1,6 +1,6 @@
 <?php
 include("conexion.php");
-include( "valida.php");
+//include( "valida.php");
 
 class PDF {
 

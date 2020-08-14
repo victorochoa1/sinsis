@@ -70,11 +70,12 @@ include("valida.php");
 
 
 
-            <h1>Generar solución</h1>
+            <h1>Generar solución y cerrar proyecto</h1>
             <form action="anexardiagnostico.php" method="POST" id="formularo_cerrar_proyecto" name="formularo_cerrar_proyecto" class="formulario">
                 <label for="diagnostico_cerrar">
                 <select name="diagnostico_cerrar" id="diagnostico_cerrar">
                     <?php
+                    //$consulta="SELECT * FROM entrevista, proyectos WHERE entrevista.proyecto = proyectos.id_proyectos AND proyectos.cerrado = 0";
                     $consulta="SELECT * FROM proyectos WHERE cerrado = 0";
                     $ejecutar=mysqli_query($db,$consulta) or die (mysqli_error($db));
                     foreach ($ejecutar as $opciones):
@@ -104,7 +105,7 @@ include("valida.php");
                 </select>
                 </label>
                 
-                <button type="submit" id="editar_proyecto">Cerrar Proyecto</button>
+                <button type="submit" id="editar_proyecto">Editar Proyecto</button>
             </form>
 
             

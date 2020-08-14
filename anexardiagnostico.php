@@ -55,7 +55,7 @@ include("valida.php");
                     <tr>
                         <td><?php echo $mostrar['nombre_proyecto'] ?></td>
                         <td></td>
-                        <td><?php echo $mostrar['ruta'] ?></td>
+                        <td> <a href="#" target="_blank" rel="noopener noreferrer"></a> <?php echo $mostrar['ruta'] ?></td>
                         <td></td>
                         <td><input type="checkbox" name="diagnostico[]" value="<?php echo $mostrar['id_diagnostico'] ?>"></td>
                     </tr>

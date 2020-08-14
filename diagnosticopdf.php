@@ -28,11 +28,13 @@ $generador = new PDF($proyectoDiagnostico);  /* aqui pasas el parametro el id de
 $nombreProyecto = $mostrar['nombre_proyecto']. $mostrar['fecha'].$mostrar['nombre_entrevistado'];
 
 // $rutaGuardado = "pdfs\\"; //windows
+//$rutaGuardado = "\\pdfs\\";
+//C:\\xampp\\htdocs\\sinsis\\pdfs\\
 $rutaGuardado = "pdfs/"; //linux
 $nombreArchivo = $nombreProyecto.".pdf";
 
 
-$rutaDiagnostico = $rutaGuardado.$nombreArchivo;//Esta variable se tiene que mandar a operaciones para el insert
+$rutaDiagnostico = $rutaGuardado.$nombreArchivo;//Esta variable se tiene que usar para el insert
 $_SESSION['rutaguardado'] =$rutaDiagnostico;
 
 

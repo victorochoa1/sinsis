@@ -65,7 +65,7 @@ include("valida.php");
             <form action="editarempleado.php" method="POST" id="formulario_editar_empleado" name="formulario_editar_empleado" class="formulario">
                 <label for="editar_empleado">
                 <select name="editar_empleado" id="editar_empleado">
-                    <option value="" selected="selected" disabled="disabled">--Selecciona--</option> 
+                    
                     <?php
                     $consulta2="SELECT * FROM usuario";
                     $ejecutar=mysqli_query($db,$consulta2) or die (mysqli_error($db));
@@ -78,8 +78,8 @@ include("valida.php");
                 <button type="submit" id="finalizado">Editar empleado</button>
             </form>
             <br><br>   
-
-
+            
+            
             <p>Eliminar empleado</p>
             <form action="operaciones.php?ac=11" method="POST" id="formulario_eliminar_empleado" name="formulario_eliminar_empleado" class="formulario">
                 <label for="eliminar_empleado">
@@ -96,15 +96,8 @@ include("valida.php");
                 </label>                <br> <br>
                 <button type="submit" id="">Eliminar empleado</button>
             </form>
-            <br><br>  
-
-
-
-
+            <br><br>      
         </div>
-
-       
-
         
 
     </center>

@@ -65,7 +65,8 @@ $proyectoeditar=$_POST['proyecto_editar'];
                     </thead>
                     <?php
                     
-                    $sql="SELECT * FROM usuario WHERE NOT EXISTS (SELECT * FROM proyecto_usuario WHERE proyecto_usuario.id_usuario = usuario.id_usuario ) AND usuario.gerente = 0 ";
+                    $sql="SELECT * FROM usuario WHERE NOT EXISTS (SELECT * FROM proyecto_usuario WHERE proyecto_usuario.id_usuario = usuario.id_usuario 
+                    AND proyecto_usuario.id_proyectos = $proyectoeditar) AND usuario.gerente = 0  ";
                     //$sql="SELECT * FROM usuario ";
                     $result=mysqli_query($db,$sql);                            
                     while($mostrar=mysqli_fetch_array($result)){

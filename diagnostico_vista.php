@@ -1,6 +1,8 @@
 <?php
 include('conexion.php');
-include("valida.php");
+//var_dump($_POST);
+//echo'$_POST';
+//include("valida.php");
 ?>
 
 <!DOCTYPE html>
@@ -17,17 +19,9 @@ include("valida.php");
    
 <p id="diagnostico">
         <?php 
-        //var_dump($_POST); 
-        echo '</br>';
-        echo '</br>';
-        echo '</br>';
-        echo '</br>';
-        //array(1) { ["diagnostico_ver"]=> string(1) "1" }
-        //$diagnostico = (is_numeric($_POST['diagnostico_ver']) ? (int)$_POST['diagnostico_ver'] : 0);
-        $diagnostico = 1;
-        //var_dump($diagnostico);
-
-        //SELECT * FROM entrevista, usuario, proyectos WHERE entrevista.proyecto = proyectos.id_proyectos AND usuario.proyecto = proyectos.id_proyectos;
+      
+      //var_dump($_POST);
+        $diagnostico = $_POST['diagnostico_ver'];        
         $sql = "SELECT * FROM entrevista, usuario, proyectos, proyecto_usuario WHERE entrevista.proyecto = proyectos.id_proyectos AND proyecto_usuario.id_proyectos = proyectos.id_proyectos AND proyecto_usuario.id_usuario = usuario.id_usuario AND proyectos.id_proyectos=  $diagnostico";
         //var_dump($sql);
         $result=mysqli_query($db,$sql);
@@ -72,6 +66,7 @@ include("valida.php");
         //echo $mostrar[15];            
         ?>
         Diagnostico de la empresa  <?php echo $mostrar["nombre_proyecto"];?>  de la fecha <?php echo $mostrar[1];   ?><br><br><br>
+
         El diagnostico muestra que el problema principal de la empresa es <?php echo $mostrar["problema_1"];   ?>, que es lo que esta atrasando los procesos de la empresa <?php echo $mostrar[30]; ?>. <br>
         La empresa <?php echo $mostrar["documentacion"]; ?> cuenta con documentación. <br>
         Documentos anexos: <?php echo $mostrar[9]; ?> <br>
@@ -79,8 +74,6 @@ include("valida.php");
         En la empresa <?php echo $mostrar[30]; ?> se aplican las herramientas de evaluación de ambiente cada <?php echo $mostrar["frecuencia_evaluar"]; ?>. <br>
         Mientras que las frecuencia de capacitacion de empleados es de <?php echo $mostrar["frecuencia_capacitacion"]; ?> <br>
         <?php echo $mostrar["conocimiento_de_reglamentos"]; ?> se conoce o se tiene registro de los reglamentos, leyes o normas a las cuales se tiene que alinear la empresa, que son: <br>
-
-
         <?php echo $mostrar["nombrar_reglamentos"]; ?> <br>
         Segun el criterio del entrevistado <?php echo $mostrar["nombre_entrevistado"]; ?>, no se estan cumpliendo <?php echo $mostrar["criterio"]; ?> <br>
         <?php echo $mostrar["estado_financiero_empresa"]; ?> se conoce el estado financiero de la empresa <br>

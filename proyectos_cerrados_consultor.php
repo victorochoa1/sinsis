@@ -73,7 +73,7 @@ $id = $_SESSION['id_usuario'];
                     }
                     ?>
                 </table>
-         
+                
             </div>
             <br><br>
         </div>
